@@ -14,6 +14,19 @@ You can register and log in to the API. After logging in, you can access the `/n
 - Update a note with `PUT /notes/:id`.
 - Delete a note with `DELETE /notes/:id`.
 
+## API Endpoints
+
+| Method | Path         | Auth required | What it does                                        |
+| ------ | ------------ | ------------- | --------------------------------------------------- |
+| POST   | `/register`  | No            | Register a new user                                 |
+| POST   | `/login`     | No            | Log in and receive an authentication token          |
+| GET    | `/notes/:id` | Yes           | Get individual note belonging to the logged-in user |
+| GET    | `/notes`     | Yes           | Get all notes belonging to the logged-in user       |
+| POST   | `/notes`     | Yes           | Create a new note                                   |
+| PUT    | `/notes/:id` | Yes           | Update a note                                       |
+| DELETE | `/notes/:id` | Yes           | Delete a note                                       |
+| GET    | `/`          | No            | Access public content without authentication        |
+
 ## Tech Stack
 
 Built with Express, JavaScript, Node.js, and Mongoose.
