@@ -41,5 +41,6 @@ I learned how multi-user authorization works and how to prevent unauthorized use
 git clone https://github.com/Anshuman56/note-auth-api
 cd note-auth-api
 npm install
+create the .env file similar to .env.example
 node server.js
 ```
