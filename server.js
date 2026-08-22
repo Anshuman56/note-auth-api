@@ -101,7 +101,7 @@ async function main() {
       try {
         await Note.create({
           userId: req.userId,
-          title: "New Note 2",
+          title: req.body.note,
           content: "some new content",
         });
         res.redirect("/notes");
@@ -116,7 +116,7 @@ async function main() {
         const note = await Note.find({ _id: id, userId: req.userId });
 
         if (note.length !== 0) {
-          await Note.findByIdAndUpdate(id, { title: "new update" });
+          await Note.findByIdAndUpdate(id, { title: req.body.note });
           const notes = await Note.find({ userId: req.userId });
           res.send(notes);
         } else res.status(403).json({ error: "You are not authorized user" });
@@ -146,7 +146,7 @@ async function main() {
 main();
 
 app.get("/", (req, res) => {
-  res.send("hello form express");
+  res.json({ message: "hello form express" });
 });
 
 // app.put("/notes/:id", (req, res) => {
